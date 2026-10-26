@@ -1,8 +1,9 @@
-Stage: 1 (Explore) · Size: Large · Branch: docs/explore
+Stage: 2 (Design) · Size: Large · Branch: docs/explore (PR #1)
 Phases: not planned yet
-Last done: Drafted docs/explore.md (options, recommendation, AC-1 to AC-14) and docs/qa.md.
-Next step: Get Explore gate approval and answers to the two open questions (remove vs delete, question 6).
-Decisions: none approved yet
+Last done: Stage 1 approved ("approve stage1"). Wrote docs/design.md (S-1 to S-15), docs/security.md and decision records D-1 to D-8.
+Next step: Get design approval for docs/design.md; then build HTML mockups for screens S-01 to S-09.
+Decisions: D-1 to D-8 in docs/decisions/ (accepted at the Explore gate)
 Blockers / open questions:
-- Code repo: onevectorllc/gitdrive (docs on branch docs/explore).
-- Open questions in docs/explore.md section 7.
+- Delete vs remove, and whether users restore their own Trash items (design.md S-15.1).
+- Minimum macOS version, assumed 14 (design.md S-15.2).
+- Accepted risks in docs/security.md need sign-off.

@@ -1,6 +1,6 @@
 # GitDrive: Stage 1 (Explore)
 
-Status: **draft, waiting for Explore gate approval**
+Status: **approved by the stakeholder on 2026-10-26 ("approve stage1")**
 Date: 2026-10-26 · Size: **Large** (new system, all four stages)
 
 ## 1. Requirement (stakeholder's words)
