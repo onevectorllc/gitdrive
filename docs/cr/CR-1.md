@@ -84,7 +84,7 @@ GitDrive stays a **native Mac app** for members, with a **web admin console** fo
 ## Questions for the stakeholder
 
 1. ~~Member sign-in?~~ **Answered:** "member sign-in by email code". Admins still sign in to GitHub once, to connect repos.
-2. **Hosting:** where should the server run? For example Fly.io or Render (simplest), AWS or Google Cloud (if you already use one), or self-hosted by each customer (more work, more control).
+2. ~~Hosting?~~ **Answered:** "we do self-host". The server ships as a Docker Compose bundle (GitDrive server, office editor, Postgres, reverse proxy with TLS) that runs on one Linux machine. Email sign-in codes go out through an SMTP server you configure. This works whether you run it for your own team or each customer runs their own.
 3. ~~Offline limit?~~ **Answered:** 14 days, view-only ("ues", read as yes).
 4. **Office editor:** ONLYOFFICE (closest to Microsoft Office, paid per simultaneous editor) or Collabora (LibreOffice-based, subscription)? I'd recommend ONLYOFFICE for compatibility with Word and Excel files.
 5. ~~Export?~~ **Answered:** "admin can export". Read as: admins can export files; members can't.

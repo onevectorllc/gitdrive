@@ -71,3 +71,7 @@
 ## Q18 · 2026-10-26 · Stage 2
 **Question:** "* member sign-in by email code * Offline limit: 14 days, view-only -? ues * are we making mac app or web app? * admin can export"
 **Answer:** Recorded: members sign in with an email code; the offline limit is 14 days, view-only; admins can export (members can't). Members get a native Mac app, because the leak protections (screenshot exclusion, Keychain-protected encrypted cache, locked-down print and save) need native controls a browser can't give. Admins get a web console. A member web app could come later with weaker protection.
+
+## Q19 · 2026-10-26 · Stage 2
+**Question:** "* we do self-host"
+**Answer:** The GitDrive server is self-hosted, packaged as a Docker Compose bundle (GitDrive server, office editor, Postgres, TLS reverse proxy) for one Linux machine, with SMTP configured for email sign-in codes. The same bundle works for hosting your own team or for customers hosting their own.
