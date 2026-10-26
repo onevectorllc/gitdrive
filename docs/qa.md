@@ -63,3 +63,7 @@
 ## Q16 · 2026-10-26 · Stage 2
 **Question:** "i won't accept the case where member has direct access to git repo as well"
 **Answer:** Members will reach drives only through a GitDrive server that alone holds GitHub access. This is change request CR-1 (docs/cr/CR-1.md): a git proxy server, GitDrive accounts, current-files-only clones, revoke-wipe and an offline limit. Revises Q2 and Q13; supersedes D-1 and D-5 once approved.
+
+## Q17 · 2026-10-26 · Stage 2
+**Question:** "we should just allow app open thru gitdrive to prevent file leaking"
+**Answer:** Possible, but editing is the hard part: any file handed to Word or Excel can be saved elsewhere. Options put to the stakeholder: A, encrypted storage with in-app preview, editing via temporary copies (reduces but doesn't prevent leaks); B, view and edit only inside GitDrive with an embedded office editor hosted on the GitDrive server, with copy, print, download and screenshots blocked (recommended; replaces AC-3 and limits offline editing); C, keep the plain folder and rely on MDM. Folds into CR-1.
