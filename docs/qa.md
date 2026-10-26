@@ -75,3 +75,11 @@
 ## Q19 · 2026-10-26 · Stage 2
 **Question:** "* we do self-host"
 **Answer:** The GitDrive server is self-hosted, packaged as a Docker Compose bundle (GitDrive server, office editor, Postgres, TLS reverse proxy) for one Linux machine, with SMTP configured for email sign-in codes. The same bundle works for hosting your own team or for customers hosting their own.
+
+## Q20 · 2026-10-26 · Stage 2
+**Question:** "what else can compromise gitdrive?"
+**Answer:** Added E-38 to E-51 for the CR-1 design: server compromise, email and admin account takeover, screen recording (window exclusion blocks screenshots but isn't reliable against recording, so add visible watermarks), Accessibility scraping, editor leaks, clock rollback, editor vulnerabilities, self-hosting misconfiguration, malicious uploads, GitHub org owners' direct access, unattended Macs and server outages. Key proposals: admin approval for new devices, passkeys for admins, and watermarks.
+
+## Q21 · 2026-10-26 · Stage 2
+**Question:** "is this kind of project existing already"
+**Answer:** Each half exists but not the combination (docs/landscape.md). Nextcloud and Seafile already offer self-hosted drives with ONLYOFFICE or Collabora, history, trash and no-download modes with watermarks, but their desktop clients keep plain local copies and they aren't git-backed. SparkleShare is git-backed but has no leak protection. GitDrive's differences are GitHub-backed history and a locked-down native client.

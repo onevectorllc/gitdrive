@@ -83,3 +83,26 @@ Anything in the repo was written by someone else, possibly from a compromised ac
 
 1. Accept E-30 (removed members keep their copy), E-31 (stolen Mac until revoked) and E-32 (authors can be faked by plain-git users) as v1 risks?
 2. Is a 60-second quiet window for office files (E-15) acceptable? It means a teammate sees an edit about a minute after the person stops typing.
+
+## 7. New risks from CR-1 (server-brokered, in-app only)
+
+Asked by the stakeholder: "what else can compromise gitdrive?" CR-1 retires many earlier cases: there are no plain files on the Mac and no git on the Mac, so E-1 to E-4, E-15 to E-18, E-23 and E-30 mostly go away. These are new.
+
+| # | Case | Severity | Proposed handling | Plan |
+|---|---|---|---|---|
+| E-38 | **Server compromise.** The server holds the GitHub App key and every file passes through it. | High | GitHub App installed only on drive repos; key in a secrets file readable only by the service; disk encryption; automatic security updates; backups; minimal open ports (443 only). | v1 |
+| E-39 | **Email account takeover** gives an attacker the sign-in codes, since sign-in is by email code | High | A new device needs **admin approval** before it can open any drive. Each device holds a Secure Enclave key, so a stolen session token alone doesn't work on another Mac. | v1 (needs approval) |
+| E-40 | **Admin account takeover** means bulk export of everything | High | Admins sign in with a passkey, not just an email code. Every export is logged, and other admins get an alert. | v1 |
+| E-41 | **Screen recording or sharing.** Excluding the window reliably stops screenshots, but reports say it doesn't reliably stop screen recording ([Apple forums](https://developer.apple.com/forums/thread/770585), [fullscreen issue](https://developer.apple.com/forums/thread/69290)). Phone cameras can't be stopped. | High | Add a **visible watermark** (viewer's name, email and time) on every viewer and editor page, so any leak is traceable. Spike to measure exactly what's blocked on macOS 14 and 15. | v1 |
+| E-42 | **Other apps reading the window** through macOS Accessibility or automation permissions | Medium | Can't be fully blocked without breaking screen readers. Watermark and audit logs deter it; managed Macs can restrict which apps get Accessibility access. | Risk |
+| E-43 | **The embedded editor leaks**: Web Inspector, right-click Save Image, drag-out, `window.print()` | High | Web Inspector disabled, context menu and drag-out blocked, print intercepted. ONLYOFFICE permissions set to no download, print or copy. | v1 |
+| E-44 | **Clock rollback** to stretch the 14-day offline limit | Medium | The server signs the offline lease, and the app tracks the last time it has seen and refuses if the clock goes backwards. The cache key is released only while the lease is valid. | v1 |
+| E-45 | **Decrypted content in memory, swap or crash reports** | Low | No decrypted temp files, and file content is kept out of crash reports. macOS encrypts swap. Remaining memory exposure is accepted. | v1 / Risk |
+| E-46 | **ONLYOFFICE vulnerabilities**, since the editor server is reachable | High | The editor is reachable only through the GitDrive server with short-lived signed tokens (JWT), never exposed directly. The installer pulls patched images, and the admin console warns when an update is available. | v1 |
+| E-47 | **Self-hosting misconfiguration**: no TLS, open database port, no backups, weak SMTP setup | High | The installer enables TLS (Let's Encrypt) by default and binds the database to localhost. A health page in the admin console flags missing backups or an old version. | v1 |
+| E-48 | **Malicious uploads** (malware, booby-trapped PDFs) | Medium | Files are never executed. PDFs and images open in macOS's sandboxed viewers, and office files render on the server. Optional virus scan (ClamAV) on upload. | v1 (scan optional) |
+| E-49 | **Whoever owns the GitHub org can still clone the repos** | High | Document that the GitHub org should contain only the GitDrive App and one or two trusted owners. The admin console shows who has direct GitHub access to each drive repo. | v1 + **Risk** |
+| E-50 | **Unattended, unlocked Mac** with GitDrive open | Medium | The app locks after idle time (default 10 minutes) and asks for Touch ID or the Mac password. | v1 |
+| E-51 | **Server down** | Medium | Members can only view cached files until it's back. Admin console shows uptime. Backups make restoring possible. | v1 |
+
+**Needs a decision:** E-39 (new devices need admin approval before use) adds a step for every new Mac. I recommend it, because email-code sign-in is otherwise only as strong as each member's email account.
