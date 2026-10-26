@@ -7,6 +7,8 @@ Date: 2026-10-26 · Size: **Large** (new system, all four stages)
 
 > "Regular usecase: gitdrive will start with a mac app. We can add/remove/delete/browse/history/open files (later we can use iOS, ipad, or web)"
 
+*Stakeholder, on "remove": "admin can restore".*
+
 > "Advanced usecase: backup" … "backup mode: I mean a server can connect to it to upload backup files"
 
 *Stakeholder, on this line: "not in scope". Server backup is out of GitDrive's scope and is not planned here.*
@@ -76,6 +78,7 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 - **AC-3** Opening a file uses its default macOS app. A saved change is committed and pushed within 15 seconds when online.
 - **AC-4** Adding (including drag and drop), renaming and deleting files or folders each create a commit attributed to that user.
 - **AC-5** A history panel shows each file's versions (author, time, message), and any version can be restored as a new commit.
+- **AC-15** A removed file or folder goes to a Trash view in the drive. A repo admin can restore it, with its full history, as a new commit.
 - **AC-6** Two users saving different files at the same time both succeed, with no error shown to either.
 - **AC-7** Two users saving the same file at the same time both keep their work: one version stays as the file, the other is saved as a conflicted copy, and the user is notified.
 - **AC-8** Changes made offline are queued and synced on reconnect without data loss.
@@ -107,6 +110,8 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 3. ~~Distribution?~~ **Answered:** direct download, "this is first step". The app ships signed and notarized outside the Mac App Store; App Store can follow later.
 4. ~~Finder integration in v1 or v1.1?~~ **Answered:** "yes, if this is possible, keep this for v1.1". It is possible (File Provider extension); AC-14 moves to v1.1, and v1 keeps the engine ready for it.
 5. ~~What kinds of files?~~ **Answered:** "usually docs, photos, regular files used by office person". See 7.1.
+
+6. **Remove vs delete** *(open)*: I read "remove" as a soft delete into Trash that an admin can restore (AC-15). Should "delete" mean the same, or a permanent purge? A permanent purge means rewriting git history for every user, so I'd leave it out of v1 unless you need it. Can non-admins restore their own removed files?
 
 ### 7.1 What the answers change
 

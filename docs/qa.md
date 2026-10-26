@@ -23,3 +23,7 @@
 ## Q6 · 2026-10-26 · Stage 1
 **Question:** (comment on the backup requirement) "not in scope"
 **Answer:** Server backup is now out of scope for GitDrive, not just deferred. Removed from the "later" list; revises Q1.
+
+## Q7 · 2026-10-26 · Stage 1
+**Question:** (comment on "remove" in the requirement) "admin can restore"
+**Answer:** Removing a file is a soft delete: it goes to a Trash view and a repo admin can restore it with its full history, as a new commit (AC-15). Git keeps every version, so this is cheap. Open: whether "delete" is a permanent purge, and whether non-admins can restore their own files.
