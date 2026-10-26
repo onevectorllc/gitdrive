@@ -1,0 +1,17 @@
+# Q&A log
+
+## Q1 · 2026-10-26 · Stage 1
+**Question:** "does this neccessary in this project scope? should I have a seperate project to work on server backup?"
+**Answer:** Server backup is not needed for v1 and is out of the v1 plan. Keep it in this project as later work, because it reuses the core engine and the repo layout; a separate project only makes sense if it becomes its own product and codebase.
+
+## Q2 · 2026-10-26 · Stage 1
+**Question:** "can we have more than one user to access the drive?"
+**Answer:** Yes. Each user signs in with their own GitHub account and is added to the repo with read or write access; git records who changed what. Same-file conflicts are saved as a "conflicted copy". GitHub grants access per repo, not per folder, so restricted areas mean one repo per shared space.
+
+## Q3 · 2026-10-26 · Stage 1
+**Question:** "how to handle Simultaneous saves ?"
+**Answer:** If different files changed, the engine fetches, replays the local commit on top and pushes again, retrying automatically. If the same file changed, the remote version stays and the local one is saved as a conflicted copy, and the user is notified. Saves are batched over a few seconds and queued offline, and files that can't be merged can be locked via Git LFS locks.
+
+## Q4 · 2026-10-26 · Stage 1
+**Question:** (comment on open question 5) "usually docs, photos, regular files used by office person"
+**Answer:** Office files and photos are binary and can't be merged, so they go to Git LFS by type, plus any file over 10 MB (AC-9 revised from a 50 MB cutoff). Locking matters more, so the app offers "lock while editing" for office files.
