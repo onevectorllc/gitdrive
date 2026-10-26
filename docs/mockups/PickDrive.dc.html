@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pick a drive</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#1D1D1F}
+a{color:#0A64D8}a:hover{color:#084FAA}
+</style>
+</helmet>
+<div style="width: 720px; height: 520px; box-sizing: border-box; padding: 24px; background: #E6E6EB">
+<div style="height: 100%; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #D1D1D6; border-radius: 12px; overflow: hidden">
+<div style="height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #F6F6F8; border-bottom: 1px solid #E2E2E6">
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F57"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FEBC2E"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #28C840"></span>
+<span style="flex-grow: 1; text-align: center; font-size: 13px; font-weight: 600; margin-right: 52px">Add a drive</span>
+</div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; gap: 14px; padding: 20px 28px">
+<p style="margin: 0; font-size: 13px; color: #5E5E66">Choose a GitHub repo to use as a drive. Each person on the team signs in with their own account.</p>
+<div role="radiogroup" aria-label="Repositories" style="display: flex; flex-direction: column; border: 1px solid #D1D1D6; border-radius: 8px; overflow: hidden">
+<label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #E3EEFC; border-bottom: 1px solid #E2E2E6; font-size: 14px"><input type="radio" name="repo" checked> <span style="flex-grow: 1">onevectorllc/team-drive</span><span style="font-size: 12px; color: #5E5E66">Private · Edit access</span></label>
+<label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #E2E2E6; font-size: 14px"><input type="radio" name="repo"> <span style="flex-grow: 1">onevectorllc/marketing</span><span style="font-size: 12px; color: #5E5E66">Private · View only</span></label>
+<label style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 14px"><input type="radio" name="repo"> <span style="flex-grow: 1">onevectorllc/finance</span><span style="font-size: 12px; color: #5E5E66">Private · Admin</span></label>
+</div>
+<p style="margin: 0; font-size: 12px; color: #5E5E66">Don't see a repo? An organization admin needs to install the GitDrive app on it. <a href="#">How to install</a></p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Drive name<input type="text" value="Team Drive" style="height: 32px; padding: 0 10px; border: 1px solid #C7C7CC; border-radius: 6px; font-size: 14px"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Folder on this Mac<input type="text" value="~/GitDrive/Team Drive" readonly style="height: 32px; padding: 0 10px; border: 1px solid #C7C7CC; border-radius: 6px; font-size: 14px; background: #F6F6F8; color: #5E5E66"></label>
+</div>
+<div style="flex-grow: 1"></div>
+<div style="display: flex; justify-content: flex-end; gap: 10px">
+<button style="height: 32px; padding: 0 16px; border: 1px solid #D1D1D6; border-radius: 6px; background: #FFFFFF; font-size: 13px; color: #1D1D1F">Cancel</button>
+<button style="height: 32px; padding: 0 16px; border: none; border-radius: 6px; background: {{accent}}; color: #FFFFFF; font-size: 13px; font-weight: 600">Add drive</button>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0A64D8"},"$preview":{"width":720,"height":520}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#0A64D8' };
+}
+}
+</script>
+</body>
+</html>

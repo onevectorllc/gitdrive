@@ -1,0 +1,15 @@
+{"v":3,"createdOnFiles":{"v":1,"at":"2026-10-26T07:30:00Z"},"title":"GitDrive Mac app mockups","launch":{"view":"canvas"},"pages":[],
+"boards":{
+"Main.dc.html":{"x":0,"y":0,"w":720,"h":520,"title":"S-01 Sign in with GitHub"},
+"PickDrive.dc.html":{"x":800,"y":0,"w":720,"h":520,"title":"S-02 Pick a drive"},
+"Browser.dc.html":{"x":0,"y":640,"w":1200,"h":760,"title":"S-03 Drive browser"},
+"History.dc.html":{"x":1280,"y":640,"w":1200,"h":760,"title":"S-04 History panel"},
+"Trash.dc.html":{"x":0,"y":1520,"w":1200,"h":760,"title":"S-05 Trash (admin view)"},
+"Conflict.dc.html":{"x":1280,"y":1520,"w":1200,"h":760,"title":"S-06 Conflict notification"},
+"SyncStatus.dc.html":{"x":0,"y":2400,"w":720,"h":520,"title":"S-07 Sync status"},
+"ReadOnly.dc.html":{"x":800,"y":2400,"w":1200,"h":760,"title":"S-08 Viewer (read-only)"},
+"TooLarge.dc.html":{"x":2080,"y":2400,"w":720,"h":520,"title":"S-09 File too large"}
+},
+"order":["Main.dc.html","PickDrive.dc.html","Browser.dc.html","History.dc.html","Trash.dc.html","Conflict.dc.html","SyncStatus.dc.html","ReadOnly.dc.html","TooLarge.dc.html"],
+"notes":{"title":{"x":0,"y":-300,"text":"GitDrive v1: Mac app screens","kind":"title1","maxW":2800}},
+"designSystems":[]}

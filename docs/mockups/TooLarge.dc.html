@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>File too large</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#1D1D1F}
+a{color:#0A64D8}a:hover{color:#084FAA}
+</style>
+</helmet>
+<div style="width: 720px; height: 520px; box-sizing: border-box; padding: 24px; background: #E6E6EB">
+<div style="height: 100%; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #D1D1D6; border-radius: 12px; overflow: hidden">
+<div style="height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #F6F6F8; border-bottom: 1px solid #E2E2E6">
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F57"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FEBC2E"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #28C840"></span>
+<span style="font-size: 13px; font-weight: 600; margin-left: 10px">Team Drive</span>
+</div>
+<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.28)">
+<div role="dialog" aria-labelledby="tl-title" style="width: 460px; display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #FFFFFF; border-radius: 12px; box-shadow: 0 12px 36px rgba(0,0,0,0.25)">
+<div style="display: flex; align-items: center; gap: 10px">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B25000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"></path><path d="M12 10v5M12 18v.5"></path></svg>
+<h2 id="tl-title" style="margin: 0; font-size: 16px; font-weight: 700">Some files are too large</h2>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.45; color: #3A3A40">GitDrive can't sync files over 50 MB yet. Large files also slow the drive down for everyone.</p>
+<div role="list" style="display: flex; flex-direction: column; border: 1px solid #E2E2E6; border-radius: 8px">
+<div role="listitem" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-bottom: 1px solid #E2E2E6; font-size: 13px">
+<span style="flex-grow: 1">Product video.mov</span><span style="color: #5E5E66">1.2 GB</span>
+<span style="font-size: 11px; font-weight: 600; color: #A0161D; background: #FDE4E5; padding: 2px 6px; border-radius: 4px">Not synced</span>
+</div>
+<div role="listitem" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 13px">
+<span style="flex-grow: 1">Scan archive.zip</span><span style="color: #5E5E66">32 MB</span>
+<span style="font-size: 11px; font-weight: 600; color: #8A3D00; background: #FFE3C7; padding: 2px 6px; border-radius: 4px">Synced, large</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 12px; color: #5E5E66">Files that aren't synced stay in the folder on this Mac only.</p>
+<div style="display: flex; justify-content: flex-end; gap: 10px">
+<button style="height: 32px; padding: 0 14px; border: 1px solid #D1D1D6; border-radius: 6px; background: #FFFFFF; font-size: 13px; color: #1D1D1F">Show in Finder</button>
+<button style="height: 32px; padding: 0 18px; border: none; border-radius: 6px; background: #0A64D8; color: #FFFFFF; font-size: 13px; font-weight: 600">OK</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":520}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

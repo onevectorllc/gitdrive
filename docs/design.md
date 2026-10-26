@@ -1,6 +1,6 @@
 # GitDrive: Stage 2 design (v1)
 
-Status: **draft, waiting for design approval** · Date: 2026-10-26
+Status: **approved by the stakeholder on 2026-10-26 ("sure, go for mockup")** · Date: 2026-10-26
 Inputs: [explore.md](explore.md) (approved), decisions [D-1 to D-8](decisions/)
 
 ## S-1. Overview
@@ -153,7 +153,7 @@ If GitHub rejects a push with 403, the engine treats the drive as read-only, kee
 | S-08 | Read-only banner for viewers | AC-10 |
 | S-09 | File too large dialog (25 MB warn, 50 MB block) | AC-9a |
 
-Mockups for these screens come after this design is approved.
+Mockups: [GitDrive Mac app mockups](https://claude.ai/artifact/4AzEEz7MRKsMNJr1uQ2rqj) (canvas), source in [mockups/](mockups/). One artboard per screen id.
 
 ## S-10. Release and updates (D-6)
 

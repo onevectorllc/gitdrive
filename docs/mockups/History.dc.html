@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>File history</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#1D1D1F}
+a{color:#0A64D8}a:hover{color:#084FAA}
+</style>
+</helmet>
+<div style="width: 1200px; height: 760px; box-sizing: border-box; padding: 24px; background: #E6E6EB">
+<div style="height: 100%; display: flex; background: #FFFFFF; border: 1px solid #D1D1D6; border-radius: 12px; overflow: hidden">
+<nav aria-label="Drives" style="width: 220px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; padding: 14px 10px; background: #F2F2F5; border-right: 1px solid #E2E2E6">
+<div style="display: flex; gap: 8px; padding: 0 4px 14px">
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F57"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FEBC2E"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #28C840"></span>
+</div>
+<span style="padding: 4px 8px; font-size: 11px; font-weight: 600; color: #5E5E66">DRIVES</span>
+<a href="Browser.dc.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; background: #DCDCE2; color: #1D1D1F; font-size: 13px; font-weight: 600; text-decoration: none">Team Drive</a>
+<a href="#" style="display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; color: #1D1D1F; font-size: 13px; text-decoration: none">Marketing</a>
+<span style="padding: 14px 8px 4px; font-size: 11px; font-weight: 600; color: #5E5E66">TEAM DRIVE</span>
+<a href="Trash.dc.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; color: #1D1D1F; font-size: 13px; text-decoration: none">Trash</a>
+</nav>
+<main style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column">
+<div style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 16px; background: #F6F6F8; border-bottom: 1px solid #E2E2E6">
+<span style="font-size: 15px; font-weight: 600">Team Drive › Projects</span>
+<div style="flex-grow: 1"></div>
+<span style="display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 13px; background: #E6F4EA; color: #1F7A3A; font-size: 12px; font-weight: 600">Up to date</span>
+<a href="Browser.dc.html" style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid #0A64D8; border-radius: 6px; background: #E3EEFC; font-size: 13px; color: #0A64D8; text-decoration: none">History</a>
+</div>
+<div style="flex-grow: 1; display: flex; min-height: 0">
+<div role="list" aria-label="Files" style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column">
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">Contracts</div>
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">Photos 2026</div>
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px; background: #E3EEFC; font-weight: 600">Budget 2027.xlsx</div>
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">Client proposal.docx</div>
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">Office floor plan.pdf</div>
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">Team offsite.jpg</div>
+<div role="listitem" style="padding: 9px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">Meeting notes.docx</div>
+</div>
+<aside aria-label="History of Budget 2027.xlsx" style="width: 340px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; padding: 16px; border-left: 1px solid #E2E2E6; background: #FBFBFC">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 700">Budget 2027.xlsx</span>
+<span style="font-size: 12px; color: #5E5E66">4 versions · 84 KB</span>
+</div>
+<div role="list" style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{versions}}" as="v" hint-placeholder-count="4">
+<div role="listitem" style="{{v.cardStyle}}">
+<div style="display: flex; align-items: center; gap: 8px">
+<span aria-hidden="true" style="width: 24px; height: 24px; border-radius: 50%; background: #5E5E66; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{v.initial}}</span>
+<span style="font-size: 13px; font-weight: 600">{{v.author}}</span>
+<span style="font-size: 12px; color: #5E5E66; margin-left: auto">{{v.when}}</span>
+</div>
+<span style="font-size: 12px; color: #3A3A40">{{v.message}}</span>
+<sc-if value="{{v.current}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; font-weight: 600; color: #1F7A3A">Current version</span></sc-if>
+<sc-if value="{{v.selected}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; gap: 8px; padding-top: 4px">
+<button style="height: 30px; padding: 0 12px; border: 1px solid #D1D1D6; border-radius: 6px; background: #FFFFFF; font-size: 12px; color: #1D1D1F">Preview</button>
+<button style="height: 30px; padding: 0 12px; border: none; border-radius: 6px; background: #0A64D8; color: #FFFFFF; font-size: 12px; font-weight: 600">Restore this version</button>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 12px; color: #5E5E66">Restoring saves the old version as a new change. Nothing in the history is lost.</p>
+</aside>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+renderVals() {
+const card = 'display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 8px; border: 1px solid #E2E2E6; background: #FFFFFF;';
+const versions = [
+{ author: 'Hai', when: 'Today, 10:41 AM', message: 'Update Budget 2027.xlsx', current: true },
+{ author: 'Alex', when: 'Yesterday, 3:20 PM', message: 'Update Budget 2027.xlsx', selected: true },
+{ author: 'Sam', when: 'Oct 22, 11:05 AM', message: 'Update Budget 2027.xlsx' },
+{ author: 'Hai', when: 'Oct 18, 9:30 AM', message: 'Add Budget 2027.xlsx' }
+].map((v) => ({ ...v, initial: v.author[0], cardStyle: card + (v.selected ? ' border-color: #0A64D8; background: #F3F8FE;' : '') }));
+return { versions };
+}
+}
+</script>
+</body>
+</html>
