@@ -122,7 +122,7 @@ When the same file changed on both sides, the version already on GitHub stays as
 - **Remove** deletes the file or folder from the working tree and commits `Remove Budget.xlsx`. The commit carries a `GitDrive-Removed-By: <login>` trailer.
 - **Trash view (S-05)** is built from history: every path deleted in a commit and not present now. No extra storage is needed.
 - **Restore from Trash** recreates the files from the commit before the removal and commits `Restore Budget.xlsx from Trash`. File history continues across the gap.
-- **Who can restore:** repo admins (GitHub `admin` or `maintain` permission). Pending question 6: whether regular users can restore what they removed themselves. The design allows either with a single permission check.
+- **Who can restore:** repo admins (GitHub `admin` or `maintain` permission). Only admins can restore, including files a user removed themselves (stakeholder: "only admin can restore files"). Editors and viewers can see the Trash but the Restore button is hidden for them.
 - **Delete:** treated exactly like Remove in v1. A permanent purge would rewrite history for everyone and is not designed here.
 
 Note on enforcement: GitHub enforces read versus write. "Only admins restore" is enforced by the app, not by GitHub, because anyone with write access could restore a file with plain git. See [security.md](security.md).
@@ -134,7 +134,7 @@ The engine reads `permissions` from `GET /repos/{owner}/{repo}` when a drive ope
 | GitHub permission | GitDrive role | Can do |
 |---|---|---|
 | `pull` (read) | Viewer | Browse, open, history, preview. Working folder is set read-only on disk, and the engine refuses commits. |
-| `push`, `triage` | Editor | Everything except restoring others' Trash items (pending question 6) |
+| `push`, `triage` | Editor | Everything except restoring from Trash |
 | `maintain`, `admin` | Admin | Everything, including restoring any Trash item |
 
 If GitHub rejects a push with 403, the engine treats the drive as read-only, keeps the local commits, and asks the user to contact an admin.
@@ -208,5 +208,5 @@ Mockups for these screens come after this design is approved.
 
 ## S-15. Open questions
 
-1. **Delete vs remove** (from explore.md question 6): both go to Trash, and should users restore their own removed files?
+1. **Delete vs remove** (from explore.md question 6): should "delete" also go to Trash? *(open; the design assumes yes)* ~~Should users restore their own removed files?~~ **Answered:** "only admin can restore files".
 2. **Minimum macOS version:** is macOS 14 or later acceptable?

@@ -39,3 +39,7 @@
 ## Q10 · 2026-10-26 · Stage 1
 **Question:** (comment on "GitHub repo" in option 3.1) "github repo"
 **Answer:** Read as choosing option 3.1 A and answering open question 1: v1 supports GitHub repos only. The engine still talks to a generic HTTPS git remote so other hosts can be added later.
+
+## Q11 · 2026-10-26 · Stage 2
+**Question:** (comment on "users restore their own removed files") "only admin can restore files"
+**Answer:** Only repo admins (GitHub admin or maintain) can restore from Trash, including a user's own removed files. Editors and viewers see the Trash without a Restore button. Updated design S-7 and S-8 and D-8.
