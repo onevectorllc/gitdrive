@@ -50,7 +50,7 @@ This replaces "Limiting what's on a member's Mac" above wherever the two differ.
 - **Viewing in the app:** PDFs (PDFKit), images, and text and Markdown files show in GitDrive's own viewer. Office files open in the embedded editor in read-only mode.
 - **Editing in the app:** Word, Excel and PowerPoint files (docx, xlsx, pptx and the OpenDocument formats) are edited in an office editor that runs on the GitDrive server and shows inside the app window. Recommended: **ONLYOFFICE Docs** or **Collabora Online**. Several people can edit the same document at once, so most conflicts disappear. Photos and PDFs are view-only in v1: to change one, a member uploads a new version.
 - **The server makes every commit.** Saves from the editor and uploads become commits on the server, under the member's name. **The Mac app no longer needs git at all.** The Rust core shrinks to an API client plus the encrypted cache, which is still shared with Android later. This removes the shallow-clone risk and most of the sync engine (S-5).
-- **Blocked by default:** download and export, copy out of the editor, printing, and drag-out to Finder. The GitDrive window is excluded from screenshots and screen recording (macOS `NSWindow.sharingType = .none`). Admins can allow export per drive.
+- **Blocked for members:** download and export, copy out of the editor, printing, and drag-out to Finder. The GitDrive window is excluded from screenshots and screen recording (macOS `NSWindow.sharingType = .none`). **Admins can export**, and each export is logged.
 - **Adding files** is still allowed: drag in from Finder, or use an Add files button.
 - **Offline:** cached files can be *viewed* until the offline limit. Editing needs a connection.
 
@@ -71,6 +71,10 @@ This replaces "Limiting what's on a member's Mac" above wherever the two differ.
 | Scope and cost | v1 grows into the Mac app, the GitDrive server, an office editor server and a web admin console. The Mac app gets simpler (no git, no file sync), but the server side grows a lot. The editor needs a license for business use (ONLYOFFICE Docs Enterprise, or a Collabora Online subscription); the free editions limit connections or are for development only. |
 | Q&A | Q2, Q13 revised. |
 
+## Mac app or web app?
+
+GitDrive stays a **native Mac app** for members, with a **web admin console** for admins. A web app would be quicker to build, but it can't deliver the leak protection option B promises: a browser can't hide its window from screenshots, it has no Keychain-protected encrypted cache for 14-day offline viewing, and print, save and developer tools are hard to lock down. The Mac app is a native shell around server-driven content: native file browser, viewers and encrypted cache, with the office editor shown inside it. A member web app could come later with clearly weaker protection (Q18).
+
 ## New risks and spikes
 
 - **Embedded editor in a Mac app:** ONLYOFFICE and Collabora are web editors, so they run inside a WKWebView. Spike S-CR1: embed one, open, edit and save a docx through our server, with copy, print and download turned off.
@@ -79,9 +83,9 @@ This replaces "Limiting what's on a member's Mac" above wherever the two differ.
 
 ## Questions for the stakeholder
 
-1. **Member sign-in:** email with a one-time code (simplest), or Sign in with Google or Microsoft (better for companies)? Admins would still sign in to GitHub once, to connect repos.
+1. ~~Member sign-in?~~ **Answered:** "member sign-in by email code". Admins still sign in to GitHub once, to connect repos.
 2. **Hosting:** where should the server run? For example Fly.io or Render (simplest), AWS or Google Cloud (if you already use one), or self-hosted by each customer (more work, more control).
-3. **Offline limit:** is 14 days right? (Offline is now view-only.)
+3. ~~Offline limit?~~ **Answered:** 14 days, view-only ("ues", read as yes).
 4. **Office editor:** ONLYOFFICE (closest to Microsoft Office, paid per simultaneous editor) or Collabora (LibreOffice-based, subscription)? I'd recommend ONLYOFFICE for compatibility with Word and Excel files.
-5. **Can admins allow export** for a specific drive, or is it never allowed?
+5. ~~Export?~~ **Answered:** "admin can export". Read as: admins can export files; members can't.
 6. **Approve CR-1?** If you approve, I'll update the design, decisions and mockups, then come back through the design gate.

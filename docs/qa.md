@@ -67,3 +67,7 @@
 ## Q17 · 2026-10-26 · Stage 2
 **Question:** "we should just allow app open thru gitdrive to prevent file leaking"
 **Answer:** Possible, but editing is the hard part: any file handed to Word or Excel can be saved elsewhere. Options put to the stakeholder: A, encrypted storage with in-app preview, editing via temporary copies (reduces but doesn't prevent leaks); B, view and edit only inside GitDrive with an embedded office editor hosted on the GitDrive server, with copy, print, download and screenshots blocked (recommended; replaces AC-3 and limits offline editing); C, keep the plain folder and rely on MDM. Folds into CR-1.
+
+## Q18 · 2026-10-26 · Stage 2
+**Question:** "* member sign-in by email code * Offline limit: 14 days, view-only -? ues * are we making mac app or web app? * admin can export"
+**Answer:** Recorded: members sign in with an email code; the offline limit is 14 days, view-only; admins can export (members can't). Members get a native Mac app, because the leak protections (screenshot exclusion, Keychain-protected encrypted cache, locked-down print and save) need native controls a browser can't give. Admins get a web console. A member web app could come later with weaker protection.
