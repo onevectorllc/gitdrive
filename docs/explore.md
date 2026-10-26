@@ -107,7 +107,7 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 
 ## 7. Open questions for the stakeholder
 
-1. Is GitHub the only host for v1? *(open)*
+1. ~~Is GitHub the only host for v1?~~ **Answered:** "github repo" (comment on option 3.1 A). v1 supports GitHub only.
 2. ~~What should the code repo be called?~~ **Answered:** "repo is created already" → `onevectorllc/gitdrive`.
 3. ~~Distribution?~~ **Answered:** direct download, "this is first step". The app ships signed and notarized outside the Mac App Store; App Store can follow later.
 4. ~~Finder integration in v1 or v1.1?~~ **Answered:** "yes, if this is possible, keep this for v1.1". It is possible (File Provider extension); AC-14 moves to v1.1, and v1 keeps the engine ready for it.

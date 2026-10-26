@@ -35,3 +35,7 @@
 ## Q9 · 2026-10-26 · Stage 1
 **Question:** (comment on "LFS") "keep LFS in backlog for v1.1"
 **Answer:** LFS (AC-9) moves to v1.1, and file locking (AC-11) moves with it because it uses the LFS lock API. v1 stores files in plain git with a size cap (new AC-9a: warn above 25 MB, refuse over 50 MB). The LFS spike is deferred.
+
+## Q10 · 2026-10-26 · Stage 1
+**Question:** (comment on "GitHub repo" in option 3.1) "github repo"
+**Answer:** Read as choosing option 3.1 A and answering open question 1: v1 supports GitHub repos only. The engine still talks to a generic HTTPS git remote so other hosts can be added later.
