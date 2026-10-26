@@ -29,6 +29,12 @@
 
 4. **Members can bypass GitDrive.** Anyone with access can use github.com or plain git directly. Normal commits are fine. Force-pushes are blocked by a branch rule that GitDrive checks for (design S-4) and detected if they happen anyway (design S-5).
 
+5. **Removed members keep their local copy** (edge case E-30). *Pending sign-off.*
+6. **A stolen, signed-in Mac has access until an admin revokes the user** (E-31). *Pending sign-off.*
+7. **Commit authors can be faked with plain git** (E-32); signing is in the backlog. *Pending sign-off.*
+
+Untrusted-content rules (symlinks, paths, quarantine, no filters or hooks) are listed in [edge-cases.md](edge-cases.md) section 1.
+
 ## Checks in the build
 
 - Secret scanning on the repo, and a staged-files check before every commit.

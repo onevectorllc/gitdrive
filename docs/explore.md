@@ -87,6 +87,9 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 - **AC-10** A user with read-only access can browse and open but not change files; the UI disables edits and the engine refuses them.
 - **AC-11 (v1.1)** A user can lock a file; other users see it as read-only until it is unlocked.
 - **AC-16** If a drive's history is rewritten on GitHub (force-push), GitDrive pauses syncing that drive without changing any local files, and admins are warned when the repo's branch rule doesn't block force-pushes. *(Added in Stage 2, Q13.)*
+- **AC-17** Untrusted content is safe: symlinks, path tricks, case clashes, Unicode lookalikes, disguised names and repo config can't write outside the drive, run code or silently overwrite a file; files received from GitHub carry the macOS quarantine flag. *(Stage 2, edge-cases.md)*
+- **AC-18** GitHub refusals (push protection, oversized pushes, archived or deleted repos, SSO, uninstalled app, rate limits) each give a clear message and a way forward, with no data loss. *(Stage 2, edge-cases.md)*
+- **AC-19** Autosaves, safe-saves, partial writes and GitDrive's own writes produce one commit per editing session, with no false deletes and no sync loops. *(Stage 2, edge-cases.md)*
 - **AC-12** The core engine has no Apple-only dependency and compiles for an Android target in CI.
 - **AC-13** Credentials are stored only in the Keychain, never in plain files or logs.
 - **AC-14 (v1.1)** The drive appears in the Finder sidebar and supports browse, open, add and delete there (File Provider). Moved out of v1 by the stakeholder.

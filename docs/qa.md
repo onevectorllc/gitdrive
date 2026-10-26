@@ -51,3 +51,7 @@
 ## Q13 · 2026-10-26 · Stage 2
 **Question:** "what if member access the repo on github ?"
 **Answer:** That's allowed: edits and uploads on GitHub are normal commits and sync into GitDrive, and deletes still show in Trash. Admin-only restore can be bypassed (accepted risk). The real danger is a force-push, so GitDrive checks that the default branch blocks force-pushes and deletion and warns admins if not, and pauses syncing without touching local files if history is rewritten anyway (new AC-16, design S-4 and S-5).
+
+## Q14 · 2026-10-26 · Stage 2
+**Question:** "explore  other edge cases that can compromise gitdrive"
+**Answer:** Listed 37 edge cases in edge-cases.md, grouped into untrusted content, GitHub refusals, app save behaviour, the user's Mac, people and access, and supply chain. Most are handled in v1 through new AC-17 to AC-19 and design S-16. Three need sign-off as accepted risks (E-30 to E-32), plus a 60-second quiet window for office files.

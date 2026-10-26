@@ -204,6 +204,7 @@ Mockups: [GitDrive Mac app mockups](https://claude.ai/artifact/4AzEEz7MRKsMNJr1u
 | AC-13 | S-3, S-4, security.md |
 | AC-15 | S-7, S-05 |
 | AC-16 | S-4, S-5 |
+| AC-17 to AC-19 | S-16, edge-cases.md |
 | AC-9, AC-11, AC-14 | v1.1 (backlog B-1 to B-3) |
 
 ## S-14. Risks
@@ -214,6 +215,15 @@ Mockups: [GitDrive Mac app mockups](https://claude.ai/artifact/4AzEEz7MRKsMNJr1u
 - **GitHub App install step:** an org admin has to install the app once, which is an extra setup step for teams.
 - **Changes made outside GitDrive:** members can edit, delete or restore files on github.com or with git. Normal commits sync fine; force-pushes are blocked by the branch rule check (S-4) and detected (S-5).
 - **Client-side Trash permission:** "admins restore" is a convention the app enforces, not GitHub.
+
+## S-16. Edge cases
+
+The full list (E-1 to E-37) with severity and handling is in [edge-cases.md](edge-cases.md). It changes the design as follows:
+
+- **Checkout safety (AC-17):** symlinks become plain files, and paths are validated and NFC-normalized. Case clashes get a "case conflict" copy. Received files get the quarantine flag. Filters, hooks and submodules never run.
+- **Refusal handling (AC-18):** push protection rejections name the file and offer "Remove from sync". Pushes are split to stay under about 500 MB. Archived, deleted, SSO and uninstalled states each have their own message.
+- **Save handling (AC-19):** office and iWork files use a 60 s quiet window, and unpushed commits to the same file are squashed. Delete-then-recreate counts as a modify, files must be stable before commit, and self-writes are ignored.
+- **Location check:** the app refuses to sync a drive folder inside iCloud Drive, Dropbox or OneDrive.
 
 ## S-15. Open questions
 
