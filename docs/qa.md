@@ -4,7 +4,7 @@
 **Question:** "does this neccessary in this project scope? should I have a seperate project to work on server backup?"
 **Answer:** Server backup is not needed for v1 and is out of the v1 plan. Keep it in this project as later work, because it reuses the core engine and the repo layout; a separate project only makes sense if it becomes its own product and codebase.
 
-## Q2 · 2026-10-26 · Stage 1
+## Q2 · 2026-10-26 · Stage 1 (revised in Q16)
 **Question:** "can we have more than one user to access the drive?"
 **Answer:** Yes. Each user signs in with their own GitHub account and is added to the repo with read or write access; git records who changed what. Same-file conflicts are saved as a "conflicted copy". GitHub grants access per repo, not per folder, so restricted areas mean one repo per shared space.
 
@@ -48,7 +48,7 @@
 **Question:** (reply to the three open items: delete goes to Trash, macOS 14 minimum, accepted security risks) "ok"
 **Answer:** Recorded all three: delete goes to Trash like remove, minimum macOS is 14, and the three risks in security.md are accepted.
 
-## Q13 · 2026-10-26 · Stage 2
+## Q13 · 2026-10-26 · Stage 2 (revised in Q16)
 **Question:** "what if member access the repo on github ?"
 **Answer:** That's allowed: edits and uploads on GitHub are normal commits and sync into GitDrive, and deletes still show in Trash. Admin-only restore can be bypassed (accepted risk). The real danger is a force-push, so GitDrive checks that the default branch blocks force-pushes and deletion and warns admins if not, and pauses syncing without touching local files if history is rewritten anyway (new AC-16, design S-4 and S-5).
 
@@ -59,3 +59,7 @@
 ## Q15 · 2026-10-26 · Stage 2
 **Question:** "it is not acceptable for member to keep local copy"
 **Answer:** E-30 is no longer an accepted risk. No app can fully guarantee removal (a member can copy files while they still have access, or clone with plain git), but GitDrive can remove its own copy automatically. Options put to the stakeholder: auto-wipe on revoke plus a 14-day offline limit; the same plus no local history (recommended); or a GitDrive server that brokers all GitHub access.
+
+## Q16 · 2026-10-26 · Stage 2
+**Question:** "i won't accept the case where member has direct access to git repo as well"
+**Answer:** Members will reach drives only through a GitDrive server that alone holds GitHub access. This is change request CR-1 (docs/cr/CR-1.md): a git proxy server, GitDrive accounts, current-files-only clones, revoke-wipe and an offline limit. Revises Q2 and Q13; supersedes D-1 and D-5 once approved.
