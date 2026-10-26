@@ -4,6 +4,4 @@ Last done: Stage 1 approved ("approve stage1"). Wrote docs/design.md (S-1 to S-1
 Next step: Get design approval for docs/design.md; then build HTML mockups for screens S-01 to S-09.
 Decisions: D-1 to D-8 in docs/decisions/ (accepted at the Explore gate)
 Blockers / open questions:
-- Whether "delete" also goes to Trash (design.md S-15.1).
-- Minimum macOS version, assumed 14 (design.md S-15.2).
-- Accepted risks in docs/security.md need sign-off.
+- None; waiting on the design gate.

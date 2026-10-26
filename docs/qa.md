@@ -43,3 +43,7 @@
 ## Q11 · 2026-10-26 · Stage 2
 **Question:** (comment on "users restore their own removed files") "only admin can restore files"
 **Answer:** Only repo admins (GitHub admin or maintain) can restore from Trash, including a user's own removed files. Editors and viewers see the Trash without a Restore button. Updated design S-7 and S-8 and D-8.
+
+## Q12 · 2026-10-26 · Stage 2
+**Question:** (reply to the three open items: delete goes to Trash, macOS 14 minimum, accepted security risks) "ok"
+**Answer:** Recorded all three: delete goes to Trash like remove, minimum macOS is 14, and the three risks in security.md are accepted.

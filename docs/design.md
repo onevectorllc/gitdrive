@@ -159,7 +159,7 @@ Mockups for these screens come after this design is approved.
 
 - Signed with a Developer ID certificate and notarized in CI (GitHub Actions on a macOS runner).
 - Sparkle 2 for auto-updates, with an EdDSA-signed appcast hosted on GitHub Releases.
-- Minimum macOS version: 14 (Sonoma). *(Assumption; tell me if older Macs need support.)*
+- Minimum macOS version: 14 (Sonoma).
 
 ## S-11. Testing
 
@@ -208,5 +208,5 @@ Mockups for these screens come after this design is approved.
 
 ## S-15. Open questions
 
-1. **Delete vs remove** (from explore.md question 6): should "delete" also go to Trash? *(open; the design assumes yes)* ~~Should users restore their own removed files?~~ **Answered:** "only admin can restore files".
-2. **Minimum macOS version:** is macOS 14 or later acceptable?
+1. **Delete vs remove** (from explore.md question 6): should "delete" also go to Trash? **Answered:** "ok", so delete goes to Trash, same as remove. ~~Should users restore their own removed files?~~ **Answered:** "only admin can restore files".
+2. ~~Minimum macOS version?~~ **Answered:** "ok", macOS 14 (Sonoma) or later.

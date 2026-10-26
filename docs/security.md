@@ -21,7 +21,7 @@
 - The GitHub App client ID ships in the app. Device flow needs no client secret, so no secret ships in the app.
 - Read versus write is enforced by GitHub. GitDrive mirrors it in the UI.
 
-## Accepted risks (need stakeholder sign-off)
+## Accepted risks (accepted by the stakeholder, 2026-10-26: "ok")
 
 1. **Trash restore permission is enforced by the app only.** Anyone with write access can restore files with plain git. Acceptable because restoring never loses data.
 2. **No end-to-end encryption.** GitHub can read drive contents, as with any GitHub repo.
