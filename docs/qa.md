@@ -83,3 +83,7 @@
 ## Q21 · 2026-10-26 · Stage 2
 **Question:** "is this kind of project existing already"
 **Answer:** Each half exists but not the combination (docs/landscape.md). Nextcloud and Seafile already offer self-hosted drives with ONLYOFFICE or Collabora, history, trash and no-download modes with watermarks, but their desktop clients keep plain local copies and they aren't git-backed. SparkleShare is git-backed but has no leak protection. GitDrive's differences are GitHub-backed history and a locked-down native client.
+
+## Q22 · 2026-10-26 · Stage 2
+**Question:** "is it meaningful to work on this project?"
+**Answer:** It depends on the audience. For your own team: no, since Nextcloud or Seafile with ONLYOFFICE, no-download mode, watermarks and managed Macs covers most needs in days. As a product: there's a niche (regulated small teams wanting a self-hosted, leak-resistant drive), but after CR-1 git is hidden, the locked-down Mac app is the differentiator, and scope is large. Recommended next step: a one-week validation (pilot Nextcloud + ONLYOFFICE, talk to 3 to 5 prospective buyers) before writing code; a smaller path is a locked-down Mac client on top of Nextcloud. Asked who GitDrive is for.
