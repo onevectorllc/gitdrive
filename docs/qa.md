@@ -55,3 +55,7 @@
 ## Q14 · 2026-10-26 · Stage 2
 **Question:** "explore  other edge cases that can compromise gitdrive"
 **Answer:** Listed 37 edge cases in edge-cases.md, grouped into untrusted content, GitHub refusals, app save behaviour, the user's Mac, people and access, and supply chain. Most are handled in v1 through new AC-17 to AC-19 and design S-16. Three need sign-off as accepted risks (E-30 to E-32), plus a 60-second quiet window for office files.
+
+## Q15 · 2026-10-26 · Stage 2
+**Question:** "it is not acceptable for member to keep local copy"
+**Answer:** E-30 is no longer an accepted risk. No app can fully guarantee removal (a member can copy files while they still have access, or clone with plain git), but GitDrive can remove its own copy automatically. Options put to the stakeholder: auto-wipe on revoke plus a 14-day offline limit; the same plus no local history (recommended); or a GitDrive server that brokers all GitHub access.

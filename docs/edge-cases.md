@@ -59,7 +59,7 @@ Anything in the repo was written by someone else, possibly from a compromised ac
 
 | # | Case | Severity | v1 handling | Plan |
 |---|---|---|---|---|
-| E-30 | **A removed member keeps a full copy**: when someone leaves the team, their Mac still has every file and all of history. GitDrive can't remotely wipe it. | High | Once access is gone, GitDrive stops syncing and offers to delete the local copy. Nothing can force it. | **Risk** |
+| E-30 | **A removed member keeps a full copy**: when someone leaves the team, their Mac still has every file and all of history. GitDrive can't remotely wipe it. | High | **Not accepted** by the stakeholder: "it is not acceptable for member to keep local copy". Mitigation options are pending a decision (Q15). | **v1, pending** |
 | E-31 | **Stolen or compromised Mac** with a signed-in GitDrive | High | Access tokens expire after 8 hours. An admin revokes the user on GitHub, which also kills the refresh token. The local copy is protected only by the Mac's own login and FileVault. | **Risk** |
 | E-32 | **Faked authors**: anyone using plain git can put any name on a commit, so history could show "Alex" for a change Alex didn't make | Medium | History shows GitHub's "Verified" badge where a commit is signed. Signing GitDrive's own commits automatically needs more GitHub permissions and work. | **Risk** in v1, signing **Later** |
 | E-33 | **Permission lowered with unsaved work**: an editor becomes a viewer while they have unpushed changes | Medium | Local commits are kept and the drive turns read-only. The user can export their changes as files to send to an admin. | v1 |
