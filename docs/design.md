@@ -158,6 +158,7 @@ If GitHub rejects a push with 403, the engine treats the drive as read-only, kee
 | S-07 | Sync status in the toolbar and menu bar: up to date, syncing, offline (n changes waiting), delayed | AC-6, AC-8 |
 | S-08 | Read-only banner for viewers | AC-10 |
 | S-09 | File too large dialog (25 MB warn, 50 MB block) | AC-9a |
+| S-10 | Drive protection warnings: missing branch rule (admins), sync paused after history rewrite | AC-16 |
 
 Mockups: [GitDrive Mac app mockups](https://claude.ai/artifact/4AzEEz7MRKsMNJr1uQ2rqj) (canvas), source in [mockups/](mockups/). One artboard per screen id.
 

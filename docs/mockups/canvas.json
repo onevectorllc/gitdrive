@@ -8,8 +8,9 @@
 "Conflict.dc.html":{"x":1280,"y":1520,"w":1200,"h":760,"title":"S-06 Conflict notification"},
 "SyncStatus.dc.html":{"x":0,"y":2400,"w":720,"h":520,"title":"S-07 Sync status"},
 "ReadOnly.dc.html":{"x":800,"y":2400,"w":1200,"h":760,"title":"S-08 Viewer (read-only)"},
-"TooLarge.dc.html":{"x":2080,"y":2400,"w":720,"h":520,"title":"S-09 File too large"}
+"TooLarge.dc.html":{"x":2080,"y":2400,"w":720,"h":520,"title":"S-09 File too large"},
+"DriveWarnings.dc.html":{"x":0,"y":3280,"w":720,"h":520,"title":"S-10 Drive protection warnings"}
 },
-"order":["Main.dc.html","PickDrive.dc.html","Browser.dc.html","History.dc.html","Trash.dc.html","Conflict.dc.html","SyncStatus.dc.html","ReadOnly.dc.html","TooLarge.dc.html"],
+"order":["Main.dc.html","PickDrive.dc.html","Browser.dc.html","History.dc.html","Trash.dc.html","Conflict.dc.html","SyncStatus.dc.html","ReadOnly.dc.html","TooLarge.dc.html","DriveWarnings.dc.html"],
 "notes":{"title":{"x":0,"y":-300,"text":"GitDrive v1: Mac app screens","kind":"title1","maxW":2800}},
 "designSystems":[]}
