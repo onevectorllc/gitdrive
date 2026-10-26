@@ -72,7 +72,9 @@ Because v1 is a direct download (D-6) with no sandbox, keeping working files in 
 2. **Pick a drive (S-02).** The engine lists the repos where the GitDrive GitHub App is installed and the user has access (`GET /user/installations/{id}/repositories`). The user picks one and names the drive, and the engine clones it. If the repo the user wants isn't listed, the screen explains that an org admin needs to install the GitHub App on it.
 3. **Commit identity.** Commits use the user's GitHub name and their `<id>+<login>@users.noreply.github.com` address, so history shows real people (AC-4, AC-5).
 
-GitHub App permissions requested: **Contents: read and write**, **Metadata: read**. Nothing else.
+GitHub App permissions requested: **Contents: read and write**, **Metadata: read**, **Administration: read** (to check branch rules). Nothing else.
+
+4. **Branch protection check.** When a drive is added and once a day after, the engine checks that the default branch blocks force-pushes and deletion (`GET /repos/{owner}/{repo}/rules/branches/{branch}`). If not, admins see a warning with a link to add the rule on GitHub. Members can still use github.com and git directly; their commits sync like any other (Q13).
 
 ## S-5. Sync engine (D-4)
 
@@ -106,6 +108,10 @@ stateDiagram-v2
 - If there are no local changes, it fast-forwards the working files.
 - If there are local changes, it commits them first, then replays as above.
 - Files are updated by writing to a temp file and renaming, so an app never sees a half-written file.
+
+### History rewritten on GitHub (AC-16)
+
+If the remote branch no longer contains the last commit this Mac synced (someone force-pushed), the engine stops syncing that drive, keeps the local files and local git data untouched, and shows "This drive's history was changed on GitHub. Syncing is paused." with an option for an admin to export the local copy. It never overwrites local work to match a rewritten remote.
 
 ### Conflicts (AC-7)
 
@@ -196,6 +202,7 @@ Mockups: [GitDrive Mac app mockups](https://claude.ai/artifact/4AzEEz7MRKsMNJr1u
 | AC-12 | S-2 |
 | AC-13 | S-3, S-4, security.md |
 | AC-15 | S-7, S-05 |
+| AC-16 | S-4, S-5 |
 | AC-9, AC-11, AC-14 | v1.1 (backlog B-1 to B-3) |
 
 ## S-14. Risks
@@ -204,6 +211,7 @@ Mockups: [GitDrive Mac app mockups](https://claude.ai/artifact/4AzEEz7MRKsMNJr1u
 - **Push contention at 50 users:** to be measured with the simulation in S-11 before release.
 - **Open-file edits during a pull:** an app with a file open may overwrite a newer version on save. That case ends in a conflicted copy, so no data is lost, but users may see more conflicted copies than expected.
 - **GitHub App install step:** an org admin has to install the app once, which is an extra setup step for teams.
+- **Changes made outside GitDrive:** members can edit, delete or restore files on github.com or with git. Normal commits sync fine; force-pushes are blocked by the branch rule check (S-4) and detected (S-5).
 - **Client-side Trash permission:** "admins restore" is a convention the app enforces, not GitHub.
 
 ## S-15. Open questions

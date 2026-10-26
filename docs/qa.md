@@ -47,3 +47,7 @@
 ## Q12 · 2026-10-26 · Stage 2
 **Question:** (reply to the three open items: delete goes to Trash, macOS 14 minimum, accepted security risks) "ok"
 **Answer:** Recorded all three: delete goes to Trash like remove, minimum macOS is 14, and the three risks in security.md are accepted.
+
+## Q13 · 2026-10-26 · Stage 2
+**Question:** "what if member access the repo on github ?"
+**Answer:** That's allowed: edits and uploads on GitHub are normal commits and sync into GitDrive, and deletes still show in Trash. Admin-only restore can be bypassed (accepted risk). The real danger is a force-push, so GitDrive checks that the default branch blocks force-pushes and deletion and warns admins if not, and pauses syncing without touching local files if history is rewritten anyway (new AC-16, design S-4 and S-5).

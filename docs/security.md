@@ -17,7 +17,7 @@
 ## Auth model
 
 - GitHub App with device flow sign-in. User tokens expire after 8 hours and are refreshed with the refresh token.
-- Requested permissions: Contents read and write, Metadata read.
+- Requested permissions: Contents read and write, Metadata read, Administration read (branch rule check only).
 - The GitHub App client ID ships in the app. Device flow needs no client secret, so no secret ships in the app.
 - Read versus write is enforced by GitHub. GitDrive mirrors it in the UI.
 
@@ -26,6 +26,8 @@
 1. **Trash restore permission is enforced by the app only.** Anyone with write access can restore files with plain git. Acceptable because restoring never loses data.
 2. **No end-to-end encryption.** GitHub can read drive contents, as with any GitHub repo.
 3. **Removed files stay in history.** A file removed by mistake that contains sensitive data is still in git history and on every member's Mac. Purging it needs a GitHub admin and a history rewrite, outside GitDrive v1.
+
+4. **Members can bypass GitDrive.** Anyone with access can use github.com or plain git directly. Normal commits are fine. Force-pushes are blocked by a branch rule that GitDrive checks for (design S-4) and detected if they happen anyway (design S-5).
 
 ## Checks in the build
 
