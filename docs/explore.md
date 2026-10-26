@@ -21,6 +21,8 @@ Date: 2026-10-26 · Size: **Large** (new system, all four stages)
 
 **In v1:** Mac app, GitHub as the only host, multi-user access through GitHub, conflict handling, large files, offline queue.
 
+**v1.1:** Finder integration (AC-14).
+
 **Later (designed for, not built):** iOS and iPad, Android, web, server backup uploads, other git hosts, per-folder permissions.
 
 ## 3. Options and recommendation
@@ -78,7 +80,7 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 - **AC-11** A user can lock a file; other users see it as read-only until it is unlocked.
 - **AC-12** The core engine has no Apple-only dependency and compiles for an Android target in CI.
 - **AC-13** Credentials are stored only in the Keychain, never in plain files or logs.
-- **AC-14** The drive appears in the Finder sidebar and supports browse, open, add and delete there (File Provider). *Could be moved to v1.1.*
+- **AC-14 (v1.1)** The drive appears in the Finder sidebar and supports browse, open, add and delete there (File Provider). Moved out of v1 by the stakeholder.
 
 ## 5. Risks
 
@@ -99,7 +101,7 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 1. Is GitHub the only host for v1? *(open)*
 2. ~~What should the code repo be called?~~ **Answered:** "repo is created already" → `onevectorllc/gitdrive`.
 3. ~~Distribution?~~ **Answered:** direct download, "this is first step". The app ships signed and notarized outside the Mac App Store; App Store can follow later.
-4. Should Finder integration (AC-14) be in v1 or v1.1? *(open)*
+4. ~~Finder integration in v1 or v1.1?~~ **Answered:** "yes, if this is possible, keep this for v1.1". It is possible (File Provider extension); AC-14 moves to v1.1, and v1 keeps the engine ready for it.
 5. ~~What kinds of files?~~ **Answered:** "usually docs, photos, regular files used by office person". See 7.1.
 
 ### 7.1 What the answers change

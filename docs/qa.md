@@ -15,3 +15,7 @@
 ## Q4 · 2026-10-26 · Stage 1
 **Question:** (comment on open question 5) "usually docs, photos, regular files used by office person"
 **Answer:** Office files and photos are binary and can't be merged, so they go to Git LFS by type, plus any file over 10 MB (AC-9 revised from a 50 MB cutoff). Locking matters more, so the app offers "lock while editing" for office files.
+
+## Q5 · 2026-10-26 · Stage 1
+**Question:** (comment on open question 4) "yes, if this is possible, keep this for v1.1"
+**Answer:** Yes, it's possible through a macOS File Provider extension, the same mechanism Google Drive and Dropbox use. AC-14 moves to v1.1; v1 ships the SwiftUI window, and the engine is designed so Finder integration can sit on top of it.
