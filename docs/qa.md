@@ -31,3 +31,7 @@
 ## Q8 · 2026-10-26 · Stage 1
 **Question:** (comment on "LFS") "what is LFS ?"
 **Answer:** Git Large File Storage, a git add-on GitHub supports. The repo keeps only small pointer files, while the real content of large files lives in separate GitHub storage and is downloaded only when opened, so the repo stays small and fast. Costs: GitHub bills LFS storage and bandwidth beyond a free allowance, and libgit2 has no LFS support, so GitDrive needs its own LFS client (the main risk).
+
+## Q9 · 2026-10-26 · Stage 1
+**Question:** (comment on "LFS") "keep LFS in backlog for v1.1"
+**Answer:** LFS (AC-9) moves to v1.1, and file locking (AC-11) moves with it because it uses the LFS lock API. v1 stores files in plain git with a size cap (new AC-9a: warn above 25 MB, refuse over 50 MB). The LFS spike is deferred.

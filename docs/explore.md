@@ -23,9 +23,9 @@ Date: 2026-10-26 · Size: **Large** (new system, all four stages)
 
 ## 2. Scope
 
-**In v1:** Mac app, GitHub as the only host, multi-user access through GitHub, conflict handling, large files, offline queue.
+**In v1:** Mac app, GitHub as the only host, multi-user access through GitHub, conflict handling, offline queue, a file size cap.
 
-**v1.1:** Finder integration (AC-14).
+**v1.1:** Finder integration (AC-14), Git LFS for large files (AC-9) and file locking (AC-11, which uses the LFS lock API).
 
 **Later (designed for, not built):** iOS and iPad, Android, web, other git hosts, per-folder permissions.
 
@@ -82,16 +82,18 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 - **AC-6** Two users saving different files at the same time both succeed, with no error shown to either.
 - **AC-7** Two users saving the same file at the same time both keep their work: one version stays as the file, the other is saved as a conflicted copy, and the user is notified.
 - **AC-8** Changes made offline are queued and synced on reconnect without data loss.
-- **AC-9** Binary file types (images, PDF, office files, media, archives) and any file over 10 MB are stored through Git LFS, transparently to the user.
+- **AC-9 (v1.1)** Binary file types (images, PDF, office files, media, archives) and any file over 10 MB are stored through Git LFS, transparently to the user. Moved to v1.1 by the stakeholder.
+- **AC-9a** In v1, files go into plain git. The app warns above 25 MB and refuses files over 50 MB with a clear message (GitHub rejects files over 100 MB).
 - **AC-10** A user with read-only access can browse and open but not change files; the UI disables edits and the engine refuses them.
-- **AC-11** A user can lock a file; other users see it as read-only until it is unlocked.
+- **AC-11 (v1.1)** A user can lock a file; other users see it as read-only until it is unlocked.
 - **AC-12** The core engine has no Apple-only dependency and compiles for an Android target in CI.
 - **AC-13** Credentials are stored only in the Keychain, never in plain files or logs.
 - **AC-14 (v1.1)** The drive appears in the Finder sidebar and supports browse, open, add and delete there (File Provider). Moved out of v1 by the stakeholder.
 
 ## 5. Risks
 
-- **Git LFS in Rust:** libgit2 has no LFS support, so we must write or adopt an LFS client. Needs a spike.
+- **Repo growth without LFS (v1):** photos and office files stored in plain git make the repo grow with every edit. Mitigation: the size cap in AC-9a, and moving to LFS in v1.1.
+- **Git LFS in Rust (v1.1):** libgit2 has no LFS support, so we must write or adopt an LFS client. Needs a spike.
 - **Repo growth:** GitHub repos slow past a few GB. Mitigation: LFS for big files, a size budget and guidance to split drives.
 - **Mobile storage:** full clones won't suit phones. Later mobile apps may need on-demand fetching via the GitHub API.
 - **Push contention:** a busy team means frequent rejected pushes. Mitigated by batching and automatic retry; to be load-tested with simulated users.
@@ -99,7 +101,7 @@ A GitHub App with the device-flow sign-in, so users never paste tokens. Tokens a
 
 ## 6. Suggested spikes (optional, before the gate)
 
-1. **LFS upload and download** from Rust against a GitHub repo.
+1. ~~LFS upload and download~~ deferred with LFS to v1.1.
 2. **Rust engine to Swift** via UniFFI, called from a small SwiftUI app.
 3. **File Provider extension** backed by a local clone.
 
