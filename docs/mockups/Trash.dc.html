@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trash</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#1D1D1F}
+a{color:#0A64D8}a:hover{color:#084FAA}
+</style>
+</helmet>
+<div style="width: 1200px; height: 760px; box-sizing: border-box; padding: 24px; background: #E6E6EB">
+<div style="height: 100%; display: flex; background: #FFFFFF; border: 1px solid #D1D1D6; border-radius: 12px; overflow: hidden">
+<nav aria-label="Drives" style="width: 220px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; padding: 14px 10px; background: #F2F2F5; border-right: 1px solid #E2E2E6">
+<div style="display: flex; gap: 8px; padding: 0 4px 14px">
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F57"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FEBC2E"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #28C840"></span>
+</div>
+<span style="padding: 4px 8px; font-size: 11px; font-weight: 600; color: #5E5E66">DRIVES</span>
+<a href="Browser.dc.html" style="display: flex; align-items: center; padding: 6px 8px; border-radius: 6px; color: #1D1D1F; font-size: 13px; text-decoration: none">Team Drive</a>
+<a href="#" style="display: flex; align-items: center; padding: 6px 8px; border-radius: 6px; color: #1D1D1F; font-size: 13px; text-decoration: none">Marketing</a>
+<span style="padding: 14px 8px 4px; font-size: 11px; font-weight: 600; color: #5E5E66">TEAM DRIVE</span>
+<a href="Trash.dc.html" style="display: flex; align-items: center; padding: 6px 8px; border-radius: 6px; background: #DCDCE2; color: #1D1D1F; font-size: 13px; font-weight: 600; text-decoration: none">Trash</a>
+</nav>
+<main style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column">
+<div style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0 16px; background: #F6F6F8; border-bottom: 1px solid #E2E2E6">
+<span style="font-size: 15px; font-weight: 600">Team Drive › Trash</span>
+<div style="flex-grow: 1"></div>
+<span style="display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 13px; background: #E6F4EA; color: #1F7A3A; font-size: 12px; font-weight: 600">Up to date</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; margin: 16px 20px 8px; padding: 10px 14px; border-radius: 8px; background: #F3F8FE; border: 1px solid #CFE0F7; font-size: 13px; color: #1D1D1F">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A64D8" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8v.5"></path></svg>
+Removed and deleted files stay here with their full history. Only admins can restore them.
+</div>
+<div role="table" aria-label="Removed files" style="display: flex; flex-direction: column">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 12px; padding: 8px 20px; border-bottom: 1px solid #E2E2E6; font-size: 12px; font-weight: 600; color: #5E5E66">
+<span role="columnheader">Name</span><span role="columnheader">Removed by</span><span role="columnheader">Removed on</span><span role="columnheader"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden">Actions</span></span>
+</div>
+<sc-for list="{{items}}" as="it" hint-placeholder-count="4">
+<div role="row" style="display: grid; grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 12px; align-items: center; padding: 8px 20px; border-bottom: 1px solid #F0F0F3; font-size: 13px">
+<span role="cell" style="display: flex; flex-direction: column"><span>{{it.name}}</span><span style="font-size: 11px; color: #5E5E66">{{it.path}}</span></span>
+<span role="cell" style="color: #5E5E66">{{it.by}}</span>
+<span role="cell" style="color: #5E5E66">{{it.when}}</span>
+<span role="cell"><button style="height: 30px; padding: 0 12px; border: 1px solid #D1D1D6; border-radius: 6px; background: #FFFFFF; font-size: 12px; color: #0A64D8; font-weight: 600">Restore</button></span>
+</div>
+</sc-for>
+</div>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":760}}'>
+class Component extends DCLogic {
+renderVals() {
+return { items: [
+{ name: 'Old logo.png', path: 'Team Drive / Branding', by: 'Sam', when: 'Today, 8:55 AM' },
+{ name: 'Q3 drafts', path: 'Team Drive / Projects', by: 'Alex', when: 'Oct 23, 2026, 6:12 PM' },
+{ name: 'Vendor list.xlsx', path: 'Team Drive', by: 'Hai', when: 'Oct 19, 2026, 1:40 PM' },
+{ name: 'Draft contract v2.docx', path: 'Team Drive / Contracts', by: 'Alex', when: 'Oct 12, 2026, 10:03 AM' }
+] };
+}
+}
+</script>
+</body>
+</html>

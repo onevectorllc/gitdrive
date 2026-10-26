@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GitDrive sign in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#1D1D1F}
+a{color:#0A64D8}a:hover{color:#084FAA}
+</style>
+</helmet>
+<div style="width: 720px; height: 520px; box-sizing: border-box; padding: 24px; background: #E6E6EB">
+<div style="height: 100%; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #D1D1D6; border-radius: 12px; overflow: hidden">
+<div style="height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #F6F6F8; border-bottom: 1px solid #E2E2E6">
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F57"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FEBC2E"></span>
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #28C840"></span>
+</div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px 64px; text-align: center">
+<div aria-hidden="true" style="width: 64px; height: 64px; border-radius: 16px; background: {{accent}}; display: flex; align-items: center; justify-content: center">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><circle cx="9" cy="13" r="1.5"></circle><circle cx="15" cy="13" r="1.5"></circle><path d="M10.5 13h3"></path></svg>
+</div>
+<h1 style="margin: 0; font-size: 24px; font-weight: 700">Welcome to GitDrive</h1>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5E5E66">Sign in with GitHub to open your team's drives. Enter this code on GitHub to approve GitDrive.</p>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 20px; border: 1px solid #D1D1D6; border-radius: 10px; background: #F6F6F8">
+<span style="font-family: ui-monospace, Menlo, monospace; font-size: 26px; font-weight: 600; letter-spacing: 3px">WDJB-MJHT</span>
+<button aria-label="Copy code" style="height: 32px; padding: 0 12px; border: 1px solid #D1D1D6; border-radius: 6px; background: #FFFFFF; font-size: 13px; color: #1D1D1F">Copy</button>
+</div>
+<a href="https://github.com/login/device" style="display: inline-flex; align-items: center; height: 44px; padding: 0 22px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none">Open GitHub to approve</a>
+<p style="margin: 0; font-size: 13px; color: #5E5E66">Waiting for approval…</p>
+<p style="margin: 0; font-size: 12px; color: #5E5E66">Your sign-in is stored only in the macOS Keychain.</p>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0A64D8"},"$preview":{"width":720,"height":520}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#0A64D8' };
+}
+}
+</script>
+</body>
+</html>
