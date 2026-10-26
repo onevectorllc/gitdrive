@@ -1,6 +1,6 @@
 # Q&A log
 
-## Q1 · 2026-10-26 · Stage 1
+## Q1 · 2026-10-26 · Stage 1 (revised in Q6)
 **Question:** "does this neccessary in this project scope? should I have a seperate project to work on server backup?"
 **Answer:** Server backup is not needed for v1 and is out of the v1 plan. Keep it in this project as later work, because it reuses the core engine and the repo layout; a separate project only makes sense if it becomes its own product and codebase.
 
@@ -19,3 +19,7 @@
 ## Q5 · 2026-10-26 · Stage 1
 **Question:** (comment on open question 4) "yes, if this is possible, keep this for v1.1"
 **Answer:** Yes, it's possible through a macOS File Provider extension, the same mechanism Google Drive and Dropbox use. AC-14 moves to v1.1; v1 ships the SwiftUI window, and the engine is designed so Finder integration can sit on top of it.
+
+## Q6 · 2026-10-26 · Stage 1
+**Question:** (comment on the backup requirement) "not in scope"
+**Answer:** Server backup is now out of scope for GitDrive, not just deferred. Removed from the "later" list; revises Q1.

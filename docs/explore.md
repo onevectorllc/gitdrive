@@ -9,13 +9,15 @@ Date: 2026-10-26 · Size: **Large** (new system, all four stages)
 
 > "Advanced usecase: backup" … "backup mode: I mean a server can connect to it to upload backup files"
 
+*Stakeholder, on this line: "not in scope". Server backup is out of GitDrive's scope and is not planned here.*
+
 > "it also available on Android later"
 
 > "can we have more than one user to access the drive?"
 
 > "I suppose this can be used in middle team size"
 
-**Restated:** GitDrive turns a private git repo into a shared Drive. Version 1 is a Mac app where a team of about 10 to 50 people can browse, open, add, remove and delete files, and see and restore each file's history. Every save becomes a git commit. iOS, iPad, Android, web and server backup come later, and v1 must not block them.
+**Restated:** GitDrive turns a private git repo into a shared Drive. Version 1 is a Mac app where a team of about 10 to 50 people can browse, open, add, remove and delete files, and see and restore each file's history. Every save becomes a git commit. iOS, iPad, Android and web come later, and v1 must not block them. Server backup is out of scope.
 
 ## 2. Scope
 
@@ -23,7 +25,9 @@ Date: 2026-10-26 · Size: **Large** (new system, all four stages)
 
 **v1.1:** Finder integration (AC-14).
 
-**Later (designed for, not built):** iOS and iPad, Android, web, server backup uploads, other git hosts, per-folder permissions.
+**Later (designed for, not built):** iOS and iPad, Android, web, other git hosts, per-folder permissions.
+
+**Out of scope:** server backup uploads.
 
 ## 3. Options and recommendation
 
